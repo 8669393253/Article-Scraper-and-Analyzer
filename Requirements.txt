@@ -1,0 +1,168 @@
+1. Python (Version 3.x)
+
+The script uses Python 3, so ensure you have Python 3 installed on your machine. Python 3.6 or later is recommended.
+
+How to check your Python version:
+
+python --version
+
+
+If you don’t have Python installed, download it from the official website: [python.org](https://www.python.org/downloads/).
+
+
+2. Required Python Libraries
+
+The script makes use of several third-party libraries. These can be installed using `pip` (Python's package manager). You can install them individually or via a `requirements.txt` file (which I’ll mention later).
+
+Libraries Needed:
+- requests: For making HTTP requests to fetch web pages and API results.
+- beautifulsoup4: For parsing HTML and scraping the main article content.
+- sklearn (scikit-learn): For performing text analysis with TF-IDF and calculating cosine similarity between sentences.
+- python-docx: For creating and saving Word documents (`.docx` files).
+- csv: For saving summaries to a CSV file.
+- string: For handling punctuation and text manipulation.
+- re: For regular expressions to preprocess and clean the text.
+- datetime: For handling timestamps when saving documents.
+
+Install via pip:
+
+pip install requests beautifulsoup4 scikit-learn python-docx
+
+
+Optional (for environment management):
+It's often helpful to use a virtual environment to isolate dependencies for a project.
+
+Create a virtual environment (optional but recommended):
+
+python -m venv venv
+
+
+Activate the virtual environment:
+- Windows:
+  
+  venv\Scripts\activate
+ 
+- macOS/Linux:
+
+  source venv/bin/activate
+ 
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+You can generate the `requirements.txt` file by running:
+
+pip freeze > requirements.txt
+
+
+
+
+3. Google Custom Search API Setup
+
+To use the Google Custom Search API, you will need:
+
+- Google API Key: An API key for accessing Google's services.
+- Custom Search Engine ID: A unique ID to search specific websites or the entire web using Google Custom Search.
+
+How to get these:
+
+1. Create a project in Google Cloud Console:
+   - Go to [Google Cloud Console](https://console.developers.google.com/).
+   - Create a new project if you don’t have one already.
+   - Enable the **Custom Search API** for your project.
+
+2. Get the API Key:
+   - In the Google Cloud Console, navigate to APIs & Services -> Credentials -> Create Credentials -> API Key.
+   - Copy the generated API Key.
+
+3. Get the Custom Search Engine ID:
+   - Go to [Google Custom Search](https://cse.google.com/cse/).
+   - Create a new search engine (you can search the entire web or limit it to specific sites).
+   - Once the search engine is created, get your `Search Engine ID`.
+
+Store API Credentials:
+- You can either store the API Key and Search Engine ID directly in the script or use environment variables for better security.
+
+
+
+4. File System Setup
+
+The script saves the output (the summary CSV and the Word document) to specific folders:
+
+- CSV Output: The summary of the article is saved to article_summary.csv in the current directory.
+- Word Document Output: The Word document containing the unique points from the articles will be saved to the folder specified in the `custom_folder_path variable.
+
+Folder path:
+- The script expects the folder path for saving the Word document to be defined in the custom_folder_path variable (D:/Desktop/Unique_Articles by default). Ensure this folder exists or update the path according to your system.
+
+---
+
+5. Internet Connection
+
+Since the script makes HTTP requests to fetch the article content and uses Google’s Custom Search API to search for related articles, a stable internet connection is required.
+
+
+
+6. Microsoft Word (for output file)
+
+- Microsoft Word is required to view the output .docx file. The script uses the python-docx library to generate Word documents, and you'll need a Word reader (such as Microsoft Word or LibreOffice) to open the document.
+
+
+
+7. Optional: Virtual Environment (for Dependency Management)
+
+If you prefer to isolate your project’s dependencies, you can set up a virtual environment using the following commands:
+
+- Create a virtual environment:
+ 
+  python -m venv venv
+  
+
+- Activate the virtual environment:
+  - Windows:
+
+    venv\Scripts\activate
+  
+  - macOS/Linux:
+
+    source venv/bin/activate
+   
+
+- Install dependencies in the virtual environment:
+ 
+  pip install requests beautifulsoup4 scikit-learn python-docx
+
+
+
+## 8. Recommended Text Editors / IDEs
+
+- VS Code: A popular lightweight code editor.
+- PyCharm: An integrated development environment (IDE) for Python.
+- Jupyter Notebooks: For testing and running Python code interactively (though it's not necessary for this script).
+
+
+Summary of Requirements:
+---------------------------------------|--------------------------------------------------------------------
+| Requirement                          | Description                                                       |
+|--------------------------------------|-------------------------------------------------------------------|
+| Python 3.x                           | Ensure Python 3.6 or later is installed.                          |
+| requests                             | For HTTP requests.                                                |
+| beautifulsoup4                       | For scraping and parsing HTML content.                            |
+| sklearn (scikit-learn)               | For TF-IDF vectorization and cosine similarity.                   |
+| python-docx                          | For generating Word documents.                                    |
+| csv                                  | For saving article summaries to a CSV file.                       |
+| re and string                        | For text cleaning and preprocessing.                              |
+| datetime                             | For managing timestamps when saving documents.                    |
+| Google API Key                       | Required for Google Custom Search API access.                     |
+| Custom Search Engine ID              | Required for specifying the search engine to use.                 |
+| Internet Connection                  | For fetching article data and using the Google Custom Search API. |
+| Microsoft Word (for .docx files)     | Required to view saved Word documents.                            |
+---------------------------------------|--------------------------------------------------------------------
+
+
+Final Notes:
+- Security: Avoid hardcoding sensitive information (like API keys) directly in the script. Instead, use environment variables or configuration files.
+- API Limits: Keep in mind that Google Custom Search API has usage limits. You might want to monitor your API usage if you're running this script frequently.
+
