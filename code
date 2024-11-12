@@ -101,10 +101,10 @@ def save_to_word_document(unique_points, folder_path):
         print(f"Error while saving document: {e}")
 
 # Google API setup (Remember to keep these secret!)
-API_KEY = 'AIzaSyB9JelqrNGjbW087iNF6Ps7Oa6IINuri2c'
-SEARCH_ENGINE_ID = 'a165e30b792d04d08'
+API_KEY = 'ENTER YOUR API KEY'
+SEARCH_ENGINE_ID = 'ENTER YOU SEARCH ENGINE ID'
 
-url = 'https://www.thehindu.com/news/international/netanyahu-says-he-okayed-lebanon-pager-attacks/article68853655.ece'
+url = 'ENTER ANY NEWS ARTICLE LINK'
 custom_folder_path = r"D:\Desktop\New folder"
 
 # Scraping the article
